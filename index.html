@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dalynn.co</title>
+  <meta name="description" content="An intentional way to say hello." />
+  <style>
+    :root{
+      --bg:#f7f2ed;
+      --card:#ffffff;
+      --soft:#fcf8f5;
+      --text:#241f1c;
+      --muted:#6f645e;
+      --line:#e9ddd5;
+      --accent:#9d7065;
+      --accent-dark:#7c564d;
+      --radius:26px;
+      --shadow:0 18px 48px rgba(36,31,28,.08);
+      --max:1020px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fbf8f6 0%, #f3ece7 100%);
+      color:var(--text);
+      font-family:Georgia, "Times New Roman", serif;
+      line-height:1.65;
+    }
+    .sans{font-family:Arial, Helvetica, sans-serif;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px 16px 64px;}
+    .shell{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:32px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero{
+      padding:50px 28px 34px;
+      text-align:center;
+      background:
+        radial-gradient(circle at left top, rgba(157,112,101,.16), transparent 28%),
+        radial-gradient(circle at right top, rgba(157,112,101,.10), transparent 24%),
+        linear-gradient(180deg,#fff 0%, #fdfaf8 100%);
+    }
+    .eyebrow{
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff9f7;
+      color:var(--accent-dark);
+      font-size:.82rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+    .portrait{
+      width:136px;
+      height:136px;
+      margin:0 auto 18px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),#c79d91);
+      color:#fff;
+      font-size:46px;
+      font-weight:700;
+      font-family:Arial, Helvetica, sans-serif;
+      border:4px solid #fff;
+      box-shadow:0 14px 30px rgba(157,112,101,.22);
+      overflow:hidden;
+    }
+    .portrait img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    h1{
+      margin:0;
+      font-size:3.1rem;
+      line-height:1;
+      font-weight:600;
+    }
+    .sub{
+      max-width:700px;
+      margin:16px auto 0;
+      color:var(--muted);
+      font-size:1.14rem;
+    }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:26px;
+    }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:14px 18px;
+      border-radius:15px;
+      border:1px solid var(--accent);
+      font-weight:700;
+      transition:.2s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .primary{background:var(--accent); color:#fff;}
+    .secondary{background:#fff; color:var(--accent-dark);}
+    .section{
+      padding:30px 28px;
+      border-top:1px solid var(--line);
+    }
+    .section-label{
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--accent-dark);
+      margin-bottom:8px;
+    }
+    h2{
+      margin:0 0 12px;
+      font-size:1.8rem;
+      font-weight:600;
+    }
+    p{
+      margin:0;
+      font-size:1.06rem;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:1.04rem;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+    .muted{color:var(--muted)}
+    .quote{
+      background:#fff9f7;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      font-size:1.12rem;
+    }
+    .split{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .form-card{
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:20px;
+    }
+    label{
+      display:block;
+      margin:0 0 6px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight:700;
+      font-size:.9rem;
+      color:var(--accent-dark);
+    }
+    input, textarea, select{
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #daccc4;
+      border-radius:14px;
+      font:inherit;
+      color:var(--text);
+      background:#fff;
+      margin-bottom:14px;
+    }
+    textarea{min-height:126px; resize:vertical}
+    .submit{
+      width:100%;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      border-radius:14px;
+      padding:15px 18px;
+      font:700 1rem Arial, Helvetica, sans-serif;
+      cursor:pointer;
+    }
+    .note{
+      margin-top:12px;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    ul{
+      margin:10px 0 0 20px;
+      padding:0;
+    }
+    .mini{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      margin-top:14px;
+    }
+    .footer{
+      text-align:center;
+      padding:22px 28px 30px;
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    .code{
+      font-family:"Courier New", monospace;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:2px 6px;
+      font-size:.92em;
+      color:var(--accent-dark);
+    }
+    @media (max-width:800px){
+      h1{font-size:2.4rem}
+      .grid,.split{grid-template-columns:1fr}
+      .hero,.section,.footer{padding-left:18px; padding-right:18px;}
+    }
+  </style>
+
+  <!-- Google Analytics placeholder -->
+  <!-- Replace G-XXXXXXXXXX with your real Measurement ID -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <main class="shell">
+      <section class="hero">
+        <div class="eyebrow sans">dalynn.co</div>
+        <div class="portrait">
+          D
+          <!-- To use a real photo, replace the D with:
+          <img src="your-photo.jpg" alt="Dalynn" />
+          -->
+        </div>
+        <h1>Hi, I’m Dalynn.</h1>
+        <p class="sub">
+          If you got one of my cards, I thought you were worth meeting.
+          I’m drawn to women who know who they are, value stability, and prefer intention over endless talking.
+        </p>
+        <div class="cta-row sans">
+          <a class="btn primary" href="#connect" onclick="trackButton('hero_connect')">Reach Out</a>
+          <a class="btn secondary" href="https://instagram.com/" target="_blank" rel="noopener" onclick="trackButton('instagram_click')">Instagram</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label sans">About</div>
+        <h2>Grounded, feminine, and not here for confusion.</h2>
+        <p>
+          I live just outside Nashville and enjoy a life that is calm, well-built, and full of purpose.
+          I appreciate confidence, humor, consistency, and women who communicate directly.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-label sans">What I value</div>
+        <h2>Connection is better when life is already in order.</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>My energy</h3>
+            <p class="muted">Warm, grounded, direct, and a little selective.</p>
+          </div>
+          <div class="card">
+            <h3>What stands out</h3>
+            <p class="muted">Emotional steadiness, follow-through, confidence, and good taste.</p>
+          </div>
+          <div class="card">
+            <h3>Non-negotiables</h3>
+            <p class="muted">Integrity, financial independence, consistency, and aligned values.</p>
+          </div>
+          <div class="card">
+            <h3>Not for me</h3>
+            <p class="muted">Chaos, games, vague intentions, or someone looking for a rescue plan.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-label sans">Looking for</div>
+        <h2>A woman who has built a life she is proud of.</h2>
+        <div class="quote">
+          I’m drawn to women who are emotionally steady, financially independent, aligned in values,
+          and ready to share life — not start from scratch.
+        </div>
+      </section>
+
+      <section class="section" id="connect">
+        <div class="section-label sans">Connect</div>
+        <h2>Be intentional.</h2>
+        <div class="split">
+          <div>
+            <p>
+              Tell me your name, where we met, and one reason I should say yes to a date.
+            </p>
+            <ul>
+              <li>Confidence is attractive.</li>
+              <li>Clear plans are even better.</li>
+              <li>I respect effort.</li>
+            </ul>
+
+            <div class="mini">
+              <strong class="sans">Analytics-ready setup</strong>
+              <p class="muted" style="margin-top:8px;">
+                This version is structured so you can track button clicks, form submissions, and QR traffic once it is published.
+              </p>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form action="#" method="post" onsubmit="trackFormSubmit(); return false;">
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" placeholder="First name" />
+
+              <label for="where">Where we met</label>
+              <select id="where" name="where">
+                <option value="">Select one</option>
+                <option>Out and about</option>
+                <option>Event</option>
+                <option>Restaurant / bar</option>
+                <option>Mutual connection</option>
+                <option>Other</option>
+              </select>
+
+              <label for="reason">Why should I say yes?</label>
+              <textarea id="reason" name="reason" placeholder="Keep it confident."></textarea>
+
+              <button class="submit" type="submit">Send</button>
+            </form>
+            <p class="note">
+              Replace this sample form with Formspree, Tally, Typeform, Google Forms, or your own email/form system before publishing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="footer sans">
+        Replace the placeholder photo, Instagram link, and analytics ID <span class="code">G-XXXXXXXXXX</span> before launch.
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function trackButton(name){
+      if (typeof gtag === 'function') {
+        gtag('event', 'button_click', { button_name: name });
+      }
+      console.log('Tracked button:', name);
+    }
+
+    function trackFormSubmit(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', { form_name: 'dating_intro_form' });
+      }
+      alert('Demo only: connect this form to Formspree, Tally, or another form tool before publishing.');
+    }
+  </script>
+</body>
+</html>
