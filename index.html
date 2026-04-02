@@ -363,6 +363,9 @@
               <textarea id="reason" name="reason" placeholder="Keep it confident."></textarea>
 
               <button class="submit" type="submit">Send</button>
+              <p id="formMessage" class="note" style="display:none; color:#7c564d; font-weight:700;">
+  I look forward to connecting! Your message was sent!
+</p>
             </form>
             <p class="note">
              
@@ -375,19 +378,42 @@
   </div>
 
   <script>
-    function trackButton(name){
-      if (typeof gtag === 'function') {
-        gtag('event', 'button_click', { button_name: name });
-      }
-      console.log('Tracked button:', name);
+  function trackButton(name){
+    if (typeof gtag === 'function') {
+      gtag('event', 'button_click', { button_name: name });
     }
+    console.log('Tracked button:', name);
+  }
 
-    function trackFormSubmit(){
-      if (typeof gtag === 'function') {
-        gtag('event', 'form_submit', { form_name: 'dating_intro_form' });
+  const form = document.getElementById('connectForm');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submit', { form_name: 'dating_intro_form' });
+        }
+
+        form.reset();
+        formMessage.style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
       }
-      alert('Demo only: connect this form to Formspree, Tally, or another form tool before publishing.');
+    } catch (error) {
+      alert('Something went wrong. Please try again.');
     }
-  </script>
-</body>
-</html>
+  });
+</script>
