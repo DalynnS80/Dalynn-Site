@@ -44,17 +44,22 @@
         radial-gradient(circle at right top, rgba(157,112,101,.10), transparent 24%),
         linear-gradient(180deg,#fff 0%, #fdfaf8 100%);
     }
-    .eyebrow{
-      display:inline-block;
-      padding:8px 14px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:#fff9f7;
-      color:var(--accent-dark);
-      font-size:.82rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      margin-bottom:18px;
+    /* ===== FIX SECTION LABELS ===== */
+.value-search-wrap .eyebrow {
+  display: block;
+  text-align: center;
+
+  background: none !important;
+  border: none !important;
+  padding: 0;
+
+  font-size: 1.15rem;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  color: var(--accent);
+
+  margin-bottom: 22px;
+}
     }
     .portrait{
       width:136px;
@@ -253,8 +258,16 @@
       .grid,.split{grid-template-columns:1fr}
       .hero,.section,.footer{padding-left:18px; padding-right:18px;}
     }
-  </style>
-:root {
+    .value-search-wrap .eyebrow::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 12px auto 0;
+  opacity: 0.6;
+}
+    :root {
   --bg: #F7F2EC;
   --card: #EEF4F3;
   --card-soft: #F9F7F3;
@@ -413,6 +426,8 @@
     margin: 52px 0;
   }
   .value-search-wrap .eyebrow::after {
+
+  </style>
   content: "";
   display: block;
   width: 60px;
