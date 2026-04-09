@@ -545,7 +545,15 @@
     .grid,.split{grid-template-columns:1fr}
     .hero,.section,.footer{padding-left:18px; padding-right:18px;}
   }
+.hero-subtext {
+  white-space: nowrap;
+}
 
+@media (max-width: 768px) {
+  .hero-subtext {
+    white-space: normal;
+  }
+}
   /* ===== VALUE / SEARCH SECTION ===== */
   :root{
     --bg:#F7F2EC;
